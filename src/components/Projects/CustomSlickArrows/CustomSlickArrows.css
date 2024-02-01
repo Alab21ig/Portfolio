@@ -1,0 +1,48 @@
+img {
+  height: 14px;
+}
+
+.arrow-prev,
+.arrow-next {
+  width: 2.2rem;
+  height: 2.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--secondary-color-bright);
+  border-radius: 0.7rem;
+  border: 1.5px solid var(--secondary-color-bright);
+  background: #2a260f;
+  position: absolute;
+  top: 55%;
+  z-index: 3;
+  cursor: pointer;
+}
+
+.arrow-prev {
+  left: -2rem;
+}
+
+.arrow-next {
+  right: -2rem;
+}
+
+@media (max-width: 1025px) {
+  .arrow-prev {
+    left: 0;
+  }
+
+  .arrow-next {
+    right: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .arrow-prev {
+    left: -1rem;
+  }
+
+  .arrow-next {
+    right: -1rem;
+  }
+}
