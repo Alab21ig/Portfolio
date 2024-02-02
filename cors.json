@@ -1,0 +1,7 @@
+[
+  {
+    "origin": ["https://abdulmalek-al-otaibi.com"],
+    "method": ["GET"],
+    "maxAgeSeconds": 3600
+  }
+]
