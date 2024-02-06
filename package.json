@@ -23,8 +23,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "deploy-gcp": "gsutil -m cp -r C:/Users/Elctr/OneDrive/Documents/GitHub/portfolio/* gs://abdulmalek-al-otaibi",
-    "start": "node index.js"
+    "deploy-gcp": "gsutil -m cp -r C:/Users/Elctr/OneDrive/Documents/GitHub/portfolio/* gs://abdulmalek-al-otaibi"
   },
   "eslintConfig": {
     "extends": [
