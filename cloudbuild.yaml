@@ -24,3 +24,6 @@ steps:
 
 images:
   - "gcr.io/abdulmalek-portfolio-413515/portfolio-service:${SHORT_SHA}"
+
+options:
+  logging: CLOUD_LOGGING_ONLY
