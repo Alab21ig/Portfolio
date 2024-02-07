@@ -1,0 +1,67 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: portfolio-service
+  namespace: "610789258126"
+  labels:
+    managed-by: gcp-cloud-build-deploy-cloud-run
+    gcb-trigger-id: a79edb36-054a-409e-be78-c88264b867b2
+    gcb-trigger-region: global
+    cloud.googleapis.com/location: europe-west4
+  annotations:
+    run.googleapis.com/client-name: cloud-console
+    serving.knative.dev/creator: abdulmalikalotaibi333@gmail.com
+    serving.knative.dev/lastModifier: abdulmalikalotaibi333@gmail.com
+    run.googleapis.com/operation-id: e91345f9-1753-4975-9f0c-2a50ae3ad233
+    run.googleapis.com/ingress: all
+    run.googleapis.com/ingress-status: all
+spec:
+  template:
+    metadata:
+      annotations:
+        run.googleapis.com/client-name: cloud-console
+        autoscaling.knative.dev/minScale: "1"
+        autoscaling.knative.dev/maxScale: "15"
+        run.googleapis.com/cpu-throttling: "false"
+        run.googleapis.com/startup-cpu-boost: "true"
+    spec:
+      containers:
+        - name: portfolio-service
+          image: asia-docker.pkg.dev/searce-playground-v1/ganesh-repo/nodejs-sample:${SHORT_SHA}
+          ports:
+            - name: http1
+              containerPort: 8080
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 512Mi
+          startupProbe:
+            timeoutSeconds: 240
+            periodSeconds: 240
+            failureThreshold: 1
+            tcpSocket:
+              port: 8080
+  traffic:
+    - percent: 100
+      latestRevision: true
+status:
+  observedGeneration: 2
+  conditions:
+    - type: Ready
+      status: "True"
+      lastTransitionTime: "2024-02-06T18:19:39.667533Z"
+    - type: ConfigurationsReady
+      status: "True"
+      lastTransitionTime: "2024-02-06T18:18:32.676689Z"
+    - type: RoutesReady
+      status: "True"
+      lastTransitionTime: "2024-02-06T18:19:39.629185Z"
+  latestReadyRevisionName: portfolio-service-00001-6lk
+  latestCreatedRevisionName: portfolio-service-00001-6lk
+  traffic:
+    - revisionName: portfolio-service-00001-6lk
+      percent: 100
+      latestRevision: true
+  url: https://portfolio-service-xc433ygloq-ez.a.run.app
+  address:
+    url: https://portfolio-service-xc433ygloq-ez.a.run.app
