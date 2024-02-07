@@ -21,7 +21,11 @@
       - 'gcr.io/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA'
       - '--region'
       - '$_DEPLOY_REGION'
-options:
-  logging: CLOUD_LOGGING_ONLY
 
+options:
+  substitutionOption: ALLOW_LOOSE
+  logging: CLOUD_LOGGING_ONLY
+  logsBucket: 'gs://abdulmalek-portfolio-413515_cloudbuild' 
+  
 images: [gcr.io/$PROJECT_ID/$_SERVICE_NAME:$COMMIT_SHA]
+
